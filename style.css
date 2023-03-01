@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Golos Text', sans-serif;
+    transition: 0.3s;
+}
+
+:root {
+    --black: #222;
+    --white: #fffcfa;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+h1 {
+    translate: -8px 0;
+}
+
+button {
+    padding: 1.5rem 5rem;
+    font-size: 1.5rem;
+    border-radius: 100px;
+    color: var(--white);
+    background-color: var(--black);
+    border: 2px var(--black) solid;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--white);
+    color: var(--black);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.mouse-blob {
+    /* background-color: var(--black); */
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 120%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    border: 1px solid var(--black);
+    z-index: 200;
+    pointer-events: none;
+}
+
+section {
+    padding: 0 10rem;
+    font-size: 1.5rem;
+}
+
+.navBar {
+    padding: 1.5rem 10rem;
+    width: 100%;
+    transform: translateY(-100%);
+    position: fixed;
+    right: 0;
+    animation: fromTop 2s cubic-bezier(0.38, 0.31, 0.33, 0.98) forwards;
+    animation-delay: 4s;
+    z-index: 2;
+    background-color: var(--white);
+}
+
+.shadow {
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .1);
+}
+
+@keyframes fromTop {
+    to {
+        transform: translateY(0%);
+    }
+}
+
+.navBar ul {
+    display: flex;
+    justify-content: end;
+    list-style: none;
+    gap: 2rem;
+    z-index: 5;
+}
+
+.navBar ul li {
+    cursor: pointer;
+}
+
+.navBar ul li:hover {
+    scale: 110%;
+}
+
+.header {
+    color: var(--black);
+    padding: 10rem;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+}
+
+.headerText {
+    z-index: 1;
+    /* text-align: center; */
+    font-size: 10rem;
+}
+
+.headerSubText {
+    margin-top: 1rem;
+    font-size: 2rem;
+    box-sizing: content-box;
+    height: 2.5rem;
+    display: flex;
+    overflow: hidden;
+}
+
+.words span {
+    display: block;
+    font-weight: 500;
+    /* height: 100%; */
+    /* border: 1px solid salmon; */
+    padding-bottom: 10px;
+    animation: spin 10s infinite;
+    animation-delay: 7s;
+}
+
+@keyframes spin {
+    0% {
+        transform: translateY(0%);
+    }
+
+    20% {
+        transform: translateY(-100%);
+    }
+
+    40% {
+        transform: translateY(-200%);
+
+    }
+
+    60% {
+        transform: translateY(-300%);
+
+    }
+
+    80% {
+        transform: translateY(-400%);
+    }
+
+    100% {
+        transform: translateY(-500%);
+    }
+}
+
+.headerWave {
+    height: 10rem;
+    transform-origin: bottom right;
+    margin-right: 20px;
+}
+
+.headerText:hover .headerWave {
+    animation: wave 0.5s 2 alternate ease-in-out;
+}
+
+.headerWaveOn {
+    animation: wave 1s 2 alternate ease-in-out;
+}
+
+@keyframes wave {
+    0% {
+        rotate: 0deg;
+    }
+
+    50% {
+        rotate: 20deg;
+    }
+
+    100% {
+        rotate: 0deg;
+    }
+}
+
+.headerBg {
+    position: absolute;
+    right: 13vw;
+    top: -4%;
+    height: 120vh;
+    z-index: 10;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+.path {
+    stroke-dasharray: 583;
+    stroke-dashoffset: 583;
+    animation: dash 4s cubic-bezier(0.38, 0.31, 0.33, 0.98) forwards;
+    animation-delay: 1s;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.byLine {
+    font-size: 1rem;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

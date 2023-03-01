@@ -1,0 +1,84 @@
+.mouse-blob {
+    left: 50%;
+    top: -30%;
+}
+
+.works{
+    padding: 5rem 10rem ;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+h2{
+    font-size: 5rem;
+    /* font-weight: 400; */
+}
+
+.navBar {
+    padding: 1.5rem 10rem;
+    width: 100%;
+    transform: translateY(-100%);
+    position: fixed;
+    right: 0;
+    animation: fromTop 0.5s cubic-bezier(0.38, 0.31, 0.33, 0.98) forwards;
+    animation-delay: 1s;
+    z-index: 2;
+}
+
+@keyframes fromTop {
+    to {
+        transform: translateY(0%);
+    }
+}
+
+.work{
+    padding: 2rem;
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.work p{
+    margin-bottom: 2rem;
+}
+
+.tags{
+    display: flex;
+    gap: 1rem
+}
+
+.tag{
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: #fff5ee;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.hoverImg{
+    position: absolute;
+    z-index: -1;
+    transform: translate(250%, 0%);
+    opacity: 0;
+    transition: 1s;
+    pointer-events: none;
+    /* display: none; */
+}
+
+.work:hover .hoverImg{
+    opacity: 1;
+}
+
+.byLine {
+    font-size: 1rem;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}
