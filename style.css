@@ -38,6 +38,19 @@ button:hover {
     color: var(--black);
 }
 
+/* .animateCTA{
+    animation: 0.2s 5 twitch alternate linear;
+} */
+
+@keyframes twitch {
+    0%{
+        rotate: 3deg;
+    }
+    100%{
+        rotate: -3deg;
+    }
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -122,7 +135,7 @@ section {
     margin-top: 1rem;
     font-size: 2rem;
     box-sizing: content-box;
-    height: 2.5rem;
+    min-height: 2.5rem;
     display: flex;
     overflow: hidden;
 }
@@ -134,7 +147,7 @@ section {
     /* border: 1px solid salmon; */
     padding-bottom: 10px;
     animation: spin 10s infinite;
-    animation-delay: 7s;
+    animation-delay: 5s;
 }
 
 @keyframes spin {
@@ -204,6 +217,7 @@ section {
 }
 
 .path {
+    stroke: #fcebde;
     stroke-dasharray: 583;
     stroke-dashoffset: 583;
     animation: dash 4s cubic-bezier(0.38, 0.31, 0.33, 0.98) forwards;
@@ -213,6 +227,7 @@ section {
 @keyframes dash {
     to {
         stroke-dashoffset: 0;
+        stroke: #fff5ee;
     }
 }
 

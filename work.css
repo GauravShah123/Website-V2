@@ -56,7 +56,7 @@ h2{
 .tag{
     font-size: 0.75rem;
     padding: 0.5rem 1rem;
-    background: #fff5ee;
+    border: 2px solid #fcebde;
     border-radius: 20px;
     width: fit-content;
 }
