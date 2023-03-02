@@ -1,15 +1,15 @@
 //Mouse
 const blob = document.getElementById("mouse-blob");
 document.body.onpointermove = event => {
-    const { clientX, clientY } = event;
-    let yPosition = clientY;
-    if (yPosition + 50 > window.innerHeight) {
-        yPosition = window.innerHeight - 50;
-    }
+    const { clientX, pageY } = event;
+    let yPosition = pageY;
+    // if (yPosition + 50 > window.innerHeight) {
+    //     yPosition = window.innerHeight - 50;
+    // }
     blob.animate({
         left: `${clientX}px`,
         top: `${yPosition}px`
-    }, { duration: 3000, fill: "forwards" });
+    }, { duration: 200, fill: "forwards" });
 }
 
 window.addEventListener("scroll", function (e) {
@@ -25,6 +25,6 @@ window.addEventListener("scroll", function (e) {
 //     const image = document.getElementById("investmintImg");
 //     image.animate({
 //         left: `${e.clientX}px`,
-//         top: `${e.clientY}px`
+//         top: `${e.pageY}px`
 //     }, { duration: 0, fill: "forwards" });
 // })
