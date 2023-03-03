@@ -28,3 +28,7 @@ window.addEventListener("scroll", function (e) {
 //         top: `${e.pageY}px`
 //     }, { duration: 0, fill: "forwards" });
 // })
+
+function navLoad(){
+    document.querySelector(".navBar").classList.toggle("show");
+}

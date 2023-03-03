@@ -9,18 +9,17 @@
 :root {
     --black: #222;
     --white: #fffcfa;
+    --dark-white: #fff5ee;
+    --darker-white: #fcebde;
 }
 
 body {
     min-height: 100vh;
     max-width: 100vw;
     background-color: var(--white);
+    color: var(--black);
     overflow-x: hidden;
     cursor: none;
-}
-
-h1 {
-    translate: -8px 0;
 }
 
 button {
@@ -43,10 +42,11 @@ button:hover {
 } */
 
 @keyframes twitch {
-    0%{
+    0% {
         rotate: 3deg;
     }
-    100%{
+
+    100% {
         rotate: -3deg;
     }
 }
@@ -75,6 +75,11 @@ section {
     font-size: 1.5rem;
 }
 
+#navIcon{
+    display: none;
+    height: 1.25rem;
+}
+
 .navBar {
     padding: 1.5rem 10rem;
     width: 100%;
@@ -82,7 +87,7 @@ section {
     position: fixed;
     right: 0;
     animation: fromTop 2s cubic-bezier(0.38, 0.31, 0.33, 0.98) forwards;
-    animation-delay: 4s;
+    /* animation-delay: 4s; */
     z-index: 10;
 }
 
@@ -113,6 +118,24 @@ section {
     scale: 110%;
 }
 
+.navBar ul li::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--black);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.navBar ul li:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
 .header {
     color: var(--black);
     padding: 10rem;
@@ -128,16 +151,22 @@ section {
 .headerText {
     z-index: 1;
     /* text-align: center; */
-    font-size: 10rem;
+    font-size: 10vw;
 }
 
 .headerSubText {
     margin-top: 1rem;
     font-size: 2rem;
     box-sizing: content-box;
-    min-height: 2.5rem;
     display: flex;
+
+}
+
+.words {
+    max-height: 2.5rem;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .words span {
@@ -179,7 +208,7 @@ section {
 }
 
 .headerWave {
-    height: 10rem;
+    height: 10vw;
     transform-origin: bottom right;
     margin-right: 20px;
 }
@@ -217,7 +246,7 @@ section {
 }
 
 .path {
-    stroke: #fcebde;
+    stroke: var(--darker-white);
     stroke-dasharray: 583;
     stroke-dashoffset: 583;
     animation: dash 4s cubic-bezier(0.38, 0.31, 0.33, 0.98) forwards;
@@ -227,7 +256,7 @@ section {
 @keyframes dash {
     to {
         stroke-dashoffset: 0;
-        stroke: #fff5ee;
+        stroke: var(--dark-white);
     }
 }
 
@@ -237,4 +266,151 @@ section {
     top: 95%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+}
+
+
+
+/* Small */
+@media (max-width: 1000px) {
+    .header {
+        padding: 2rem 10vw;
+    }
+
+    .headerText {
+        font-size: 15vw;
+    }
+
+    .headerWave {
+        height: 15vw;
+    }
+
+    .headerBg {
+        right: 40%;
+        translate: 50% 0;
+        z-index: -1;
+    }
+
+    .navBar ul {
+        justify-content: center;
+    }
+
+    :root {
+        --black: #fffcfa;
+        --white: #151515;
+        --dark-white: #111;
+    --darker-white: #000;
+
+    }
+}
+
+/* Smallest */
+@media (max-width: 800px) {
+    .headerSubText {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .words {
+        max-height: 2.25rem;
+        max-width: 70vw;
+        flex-direction: row;
+    }
+
+    .words span {
+        animation: verticalSpin 15s infinite cubic-bezier(0, 0.5, 0, 1);
+        animation-delay: 5s;
+        min-width: 70vw;
+    }
+
+    #CTA {
+        padding: 1rem 3rem;
+    }
+
+    .byLine {
+        width: 60%;
+        z-index: 10000;
+    }
+
+    #navIcon{
+        display: block;
+        position: fixed;
+        top: 2rem;
+        right: 10vw;
+        z-index: 1000;
+    }
+
+    .navBar {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        min-width: 100vw;
+        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        translate: 0 -10vh;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease-out;
+    }
+
+    .navBar.show{
+        translate: 0 0;
+        opacity: 1;
+        pointer-events: initial;
+    }
+
+    .navBar ul {
+        flex-direction: column;
+        width: 100vw;
+        text-align: center;
+        background-color: var(--white);
+        border-radius: 5px;
+        padding: 1rem 2rem;
+        gap: 0;
+        align-items: center;
+    }
+
+    .navBar ul li {
+        margin: 1rem;
+        width: fit-content;
+    }
+}
+
+@keyframes verticalSpin {
+    0% {
+        transform: translateX(0%);
+    }
+
+    20% {
+        transform: translateX(-100%);
+    }
+
+    40% {
+        transform: translateX(-200%);
+
+    }
+
+    60% {
+        transform: translateX(-300%);
+
+    }
+
+    80% {
+        transform: translateX(-400%);
+    }
+
+    100% {
+        transform: translateX(-500%);
+    }
+}
+
+/* Big */
+@media (min-width: 1000px) {
+    h1 {
+        translate: -8px 0;
+    }
 }
