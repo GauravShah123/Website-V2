@@ -13,7 +13,7 @@ h1{
 }
 
 h2{
-    font-size: 5rem;
+    font-size: 5vw;
     /* font-weight: 400; */
 }
 
@@ -81,4 +81,28 @@ h2{
     width: 100%;
     text-align: center;
     padding: 1rem;
+}
+
+/* Smallest */
+@media (max-width: 800px) {
+    .works{
+        padding: 2rem 10vw;
+    }
+
+    h2{
+        font-size: 8vw;
+        margin-bottom: 2vw;
+        /* font-weight: 400; */
+    }
+    section{
+        font-size: 1.25rem;
+    }
+    .tags{
+        flex-direction: column;
+    }
+    .work{
+        border-bottom: 1px #333 solid;
+        border-top: 1px #333 solid;
+    }
+    
 }
