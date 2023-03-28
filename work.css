@@ -1,3 +1,7 @@
+*{
+    transition: 0s;
+}
+
 .mouse-blob {
     left: 50%;
     top: -30%;
@@ -42,6 +46,13 @@ h2{
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
+    position: relative;
+}
+
+
+.work-image{
+    width: 30%;
+    object-fit: cover;
 }
 
 .work p{
@@ -64,7 +75,7 @@ h2{
 .hoverImg{
     position: absolute;
     z-index: -1;
-    transform: translate(250%, 0%);
+    right: 30px;
     opacity: 0;
     transition: 1s;
     pointer-events: none;
@@ -73,6 +84,43 @@ h2{
 
 .work:hover .hoverImg{
     opacity: 1;
+}
+
+.otherWorks{
+    padding: 5rem 10vw ;
+    padding-top: 0;
+}
+
+.otherWorksHeading{
+    text-align: center;
+}
+
+.otherWorksContent{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    margin-top: 20px;
+}
+
+.otherWork{
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+}
+
+.otherWork p b{
+    font-size: 2vw;
+    margin-bottom: 0.5rem;
+}
+
+.otherWork p{
+    margin-bottom: 1.5rem;
+}
+
+.otherWork .tags{
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .byLine {
@@ -104,5 +152,10 @@ h2{
         border-bottom: 1px #333 solid;
         border-top: 1px #333 solid;
     }
-    
+    .otherWorksContent{
+        grid-template-columns: 1fr;
+    }
+    .otherWork p b{
+        font-size: 5vw;
+    }
 }
